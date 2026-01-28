@@ -10,7 +10,15 @@
  */
 int bitMatch(int x, int y)
 {
-    return 2;
+    /*
+    match:
+        case 1: match on 1 -> x & y
+        case 2: match on 0 -> ~(x | y) OR ~x & ~ y
+    */
+
+    // my prev ans: return ~((x | y) & ~(x & y)); after demorgan will be ~(x | y) | (x & y) which matches our cases
+    
+    return ~(~(~x & ~y) & ~(x & y)); //i try not to use the | operator lmao
 }
 
 int test_bitMatch(int x, int y)
@@ -27,8 +35,8 @@ int test_bitMatch(int x, int y)
 
 int main(void)
 {
-    int x = 0;
-    int y = 0;
+    int x = 0x7;
+    int y = 0xE;
     printf("expected: %x\n", bitMatch(x, y));
     printf("actual  : %x\n", test_bitMatch(x, y));
 }

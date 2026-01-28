@@ -8,7 +8,8 @@
  */
 int minusOne(void)
 {
-    return 2;
+    // alt answer: ~1+1
+    return ~(0 << 31);
 }
 
 int test_minusOne(void)

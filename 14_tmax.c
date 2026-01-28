@@ -8,7 +8,13 @@
  */
 int tmax(void)
 {
-    return 2;
+    // tmin is just complement of tmax
+    return ~(1 << 31) ;
+
+    //alt ans
+    // ((unsigned int)(~0)) >> 1
+
+    //or treat tmin as unsigned then -1
 }
 
 int test_tmax(void)

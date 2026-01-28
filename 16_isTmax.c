@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <limits.h>
+
 
 /*
  * isTmax - returns 1 if x is the maximum, two's complement number,
@@ -9,7 +11,7 @@
  */
 int isTmax(int x)
 {
-    return 2;
+    return !(x ^ ~(1 << 31));
 }
 
 int test_isTmax(int x)
@@ -19,7 +21,7 @@ int test_isTmax(int x)
 
 int main(void)
 {
-    int x = 0;
+    int x = INT_MAX;
     printf("expected: %x\n", isTmax(x));
     printf("actual  : %x\n", test_isTmax(x));
 }
